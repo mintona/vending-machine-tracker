@@ -26,13 +26,14 @@ RSpec.describe "As a visitor" do
         expect(page).to have_content(dons.location)
         expect(page).to have_content("3 kinds of snacks")
         expect(page).to have_content(dons.snacks.average_price)
+        expect(page).to have_content("average price of $2.50")
       end
 
       within "#location-#{johns.id}" do
         expect(page).to have_content(johns.location)
         expect(page).to have_content("2 kinds of snacks")
         expect(page).to have_content(johns.snacks.average_price)
-
+        expect(page).to have_content("average price of $3.00")
       end
     end
   end
