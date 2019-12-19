@@ -37,4 +37,19 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
       expect(page).to have_content("$2.50")
     end
   end
+
+  it "they can see the average price of all snacks" do
+    owner = Owner.create(name: "Sam's Snacks")
+    dons  = owner.machines.create(location: "Don's Mixed Drinks")
+
+    burger = Snack.create!(name: "White Castle Burger", price_in_cents: 3.50)
+    pop_rocks = Snack.create!(name: "Pop Rocks", price_in_cents: 1.50)
+    cheetos = Snack.create!(name: "Flaming Hot Cheetos", price_in_cents: 2.50)
+
+    dons.snacks << [burger, pop_rocks, cheetos]
+
+    visit machine_path(dons)
+
+    expect(page).to have_content("Average Price: $2.50")
+  end
 end
