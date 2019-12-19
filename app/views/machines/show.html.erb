@@ -8,6 +8,6 @@
     <li> Name: <%= snack.name %>, Price: <%= number_to_currency(snack.price_in_cents) %> </li>
   </section>
 <% end %>
+</ul>
 
 <p>Average Price: <%= number_to_currency(@machine.snacks.average_price)%></p>
-</ul>
