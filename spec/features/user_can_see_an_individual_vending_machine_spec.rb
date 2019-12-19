@@ -36,6 +36,5 @@ RSpec.describe 'When a user visits a vending machine show page', type: :feature 
       expect(page).to have_content(cheetos.name)
       expect(page).to have_content("$2.50")
     end
-    save_and_open_page
   end
 end
