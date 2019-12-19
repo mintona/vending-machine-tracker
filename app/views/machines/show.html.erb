@@ -6,6 +6,8 @@
 <% @machine.snacks.each do |snack| %>
   <section id = "snack-<%= snack.id %>">
     <li> Name: <%= snack.name %>, Price: <%= number_to_currency(snack.price_in_cents) %> </li>
-</section>
+  </section>
 <% end %>
+
+<p>Average Price: <%= number_to_currency(@machine.snacks.average_price)%></p>
 </ul>
